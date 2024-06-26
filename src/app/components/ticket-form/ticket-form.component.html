@@ -1,1 +1,10 @@
-<p>ticket-form works!</p>
+@if(!isLoggedIn()){
+    <h2>Sign in to add a ticket</h2>
+}
+@else{
+    <label for="Title">Title</label>
+    <input type="text" id="Title" [(ngModel)]="formTicket.title"/>
+    <label for="Body">Body</label>
+    <input type="text" id="Title" [(ngModel)]="formTicket.body" />
+    <button (click)="emitSubmitted()">Add</button>
+}

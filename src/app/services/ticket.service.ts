@@ -13,7 +13,7 @@ export class TicketService {
   //Kyra = same url?
   //Ben = same url?
   //Ali = same url?
-
+ 
   getAll():Observable<TicketModel[]>{
     return this.http.get<TicketModel[]>(`${this.url}api/Ticket`);
   }
