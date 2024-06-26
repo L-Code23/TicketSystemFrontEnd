@@ -1,0 +1,11 @@
+<h1>{{ displayTicket.title}} Ticket ID #{{displayTicket.id}}</h1>
+<p>{{displayTicket.body}} </p>
+<p>{{displayTicket.isOpen}}</p>
+<p>{{displayTicket.userOpened}}</p><!--add if statement to display check mark or something-->
+@if(!displayTicket.isOpen){
+    <p>{{displayTicket.resolution}}</p>
+    <p>{{displayTicket.userClosed}}</p>
+}
+
+
+

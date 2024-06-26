@@ -1,0 +1,25 @@
+<div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Open?</th>
+            <th></th>
+            
+        </tr>
+        
+        @for(t of allTickets; track t.id ){
+        <tr>
+                <td>{{ t.title}}</td>
+                @if(t.isOpen){
+                    <td>Open</td> 
+                }
+                @else {
+                    <td>Closed</td>
+                }
+                 <td> <button [routerLink]="['/details/', t.id]">See details</button></td>  
+            
+        </tr>
+        }
+    </table>
+   
+</div>
