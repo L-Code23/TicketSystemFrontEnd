@@ -9,7 +9,7 @@ import { UserService } from './services/user.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GoogleSigninButtonModule, TicketListComponent,BookmarkListComponent,RouterLink],
+  imports: [RouterOutlet, GoogleSigninButtonModule, TicketListComponent, BookmarkListComponent ,RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

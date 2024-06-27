@@ -1,1 +1,6 @@
-<p>resolution-form works!</p>
+<div>
+    <label for="resolution">Add a resolution</label>
+    <input type="text" id="text" [(ngModel)]="formTicket.resolution" />
+
+    <button (click)="emitSubmitted()">Submit</button>
+</div>

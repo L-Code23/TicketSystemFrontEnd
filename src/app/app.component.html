@@ -1,16 +1,48 @@
-@if (!IsLoggedIn()) {
-  <!-- Custom component that handles log in -->
-  <asl-google-signin-button></asl-google-signin-button>
-}
-@else {
-  <!-- calls our log out method -->
-  <button class="btn btn-outline-dark" (click)="SignOut()">
-    Sign Out
+<div class="container-fluid">
+
+  <nav class="navbar navbar-expand navbar-dark navbar-custom fixed-top mb-3">
+  
+        <a class="navbar-brand" routerLink="/">IT Help Desk</a> 
+      
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
   </button>
-}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+          <ul class="navbar-nav" >
+            
+            <li>
+              <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li>
+              <a class="nav-link" routerLink="/Bookmark/">Bookmarks</a>
+            </li>
+           
+              
+          
+          </ul>
+          <span class="ms-auto google-btn">
+  
+            @if (!IsLoggedIn()) {
+              <!-- Custom component that handles log in -->
+             
+              <asl-google-signin-button type="standard" shape="circle" text="signin_with" ></asl-google-signin-button>
+        
+                
+            }
+            @else {
+              <!-- calls our log out method -->
+           
+                 <button  type="standard" shape="circle"(click)="SignOut()">
+                   Sign Out
+                 </button>
+            
+            }
+          </span>
+        </div>
+  </nav>
+</div>
 
-<a routerLink="/">Home</a>
-<a routerLink="/bookmark/">Bookmarks</a>
-<router-outlet></router-outlet>
-
-
+  <div class="container mt-4 bg-dark"> 
+    <router-outlet></router-outlet>
+  </div>

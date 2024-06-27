@@ -2,10 +2,26 @@
 <p>{{displayTicket.body}} </p>
 <p>{{displayTicket.isOpen}}</p>
 <p>{{displayTicket.userOpened}}</p><!--add if statement to display check mark or something-->
+@if(isLoggedIn()){
+
+    <button (click)="addBookmark()">Add Bookmark</button>
+}
+@else {
+    <p>Sign in to add a bookmark</p>
+}
+
 @if(!displayTicket.isOpen){
     <p>{{displayTicket.resolution}}</p>
     <p>{{displayTicket.userClosed}}</p>
 }
 
+
+@if (isLoggedIn()) {
+
+    <app-resolution-form [formTicket]="displayTicket" (Submitted)="addResolution($event)"></app-resolution-form>
+}
+@else {
+    <h3>Sign in to add a resolution</h3>
+}
 
 

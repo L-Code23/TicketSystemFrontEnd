@@ -26,5 +26,6 @@ export class TicketFormComponent {
   let newTicket:TicketModel = {...this.formTicket};
   this.Submitted.emit(newTicket);
   this.formTicket = {} as TicketModel;
+  
 }
 }

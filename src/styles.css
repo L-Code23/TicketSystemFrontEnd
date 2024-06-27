@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar-custom{
+    margin-bottom: 10px;
+    background-color: #4f5861;
+}
+.navbar-brand{
+    margin-left: 16px;
+}
+.google-btn{
+    margin-right: 16px;
+}
+html, body{
+    background: #212529;
+    color: rgb(255, 244, 244);
+}
+:root{
+    margin-top: 50px;
+}

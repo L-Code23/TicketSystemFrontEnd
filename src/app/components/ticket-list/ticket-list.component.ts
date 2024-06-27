@@ -30,7 +30,8 @@ getTicket(){
 addTicket(t: TicketModel){
   this.ticketService.addTicket(t).subscribe((response: TicketModel) =>{
     console.log(response);
-    this.ticketService.getAll();
+  this.getTicket();
   })
  }
+ 
 }

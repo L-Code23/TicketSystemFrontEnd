@@ -6,5 +6,5 @@ import { BookmarkListComponent } from './components/bookmark-list/bookmark-list.
 export const routes: Routes = [
     {path:"", component:TicketListComponent},
     {path:"details/:id", component:TicketDetailsComponent},
-    {path:"bookmark", component:BookmarkListComponent}
+    {path:"Bookmark", component:BookmarkListComponent}
 ];
