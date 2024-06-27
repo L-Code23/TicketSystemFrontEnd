@@ -26,14 +26,14 @@
             @if (!IsLoggedIn()) {
               <!-- Custom component that handles log in -->
              
-              <asl-google-signin-button type="standard" shape="circle" text="signin_with" ></asl-google-signin-button>
+              <asl-google-signin-button  type="standard" shape="circle" text="signin_with" ></asl-google-signin-button>
         
                 
             }
             @else {
               <!-- calls our log out method -->
            
-                 <button  type="standard" shape="circle"(click)="SignOut()">
+                 <button class="btn btn-primary see-detail-btn" type="standard" shape="circle"(click)="SignOut()">
                    Sign Out
                  </button>
             

@@ -57,4 +57,9 @@ ngOnInit(){
       console.log(response);
     })
   }
+  //getUser(): string{
+    
+   //return this.userService.user.;
+  //}
 }
+//https://lh3.googleusercontent.com/a/ACg8ocJ4wW3rSnU5IyT7M9JR4c57AxojV7fSS38j03Zf-RxI4X02dneTrg=s96-c

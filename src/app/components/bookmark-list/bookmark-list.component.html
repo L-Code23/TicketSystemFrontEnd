@@ -10,7 +10,7 @@
                 <td>{{b.ticket.title}}</td>
                 <td>{{b.ticketId}}</td>
                 <td><button  [routerLink]="['/details/', b.ticketId]">See Details</button></td>
-                <td><button (click)="deleteBookmark(b.id)">Delete</button></td>
+                <td><button class="btn btn-primary see-detail-btn" (click)="deleteBookmark(b.id)">Delete</button></td>
             }
         </tr>
     }

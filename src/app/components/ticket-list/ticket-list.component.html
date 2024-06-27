@@ -3,27 +3,32 @@
     <app-ticket-form (Submitted)="addTicket($event)"></app-ticket-form>
 </div>
 <div>
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Open?</th>
-            <th></th>
-            
-        </tr>
+    <table class="table table-secondary table-striped table-hover" >
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Open?</th>
+                <th scope="col"></th>
+                
+            </tr>
+        </thead>
         
-        @for(t of allTickets; track t.id ){
-        <tr>
-                <td>{{ t.title}}</td>
-                @if(t.isOpen){
-                    <td>Open</td> 
+        <tbody>
+            @for(t of allTickets; track t.id ){
+                <tr>
+                        <td scope="row">{{ t.title}}</td>
+                        @if(t.isOpen){
+                            <td>Open</td> 
+                        }
+                        @else {
+                            <td>Closed</td>
+                        }
+                         <td> <button class="btn btn-primary see-detail-btn" [routerLink]="['/details/', t.id]">See details</button></td>  
+                    
+                </tr>
                 }
-                @else {
-                    <td>Closed</td>
-                }
-                 <td> <button [routerLink]="['/details/', t.id]">See details</button></td>  
-            
-        </tr>
-        }
+        </tbody>
+       
     </table>
    
 </div>
