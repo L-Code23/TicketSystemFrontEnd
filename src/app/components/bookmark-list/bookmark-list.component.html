@@ -6,7 +6,7 @@
     </tr>
     @for (b of AllBookmarks; track b.id) {
         <tr>
-            @if(b.ticket.userOpened == getUser()) {
+            @if(b.userBookmarked == getUser()) {
                 <td>{{b.ticket.title}}</td>
                 <td>{{b.ticketId}}</td>
                 <td><button  [routerLink]="['/details/', b.ticketId]">See Details</button></td>

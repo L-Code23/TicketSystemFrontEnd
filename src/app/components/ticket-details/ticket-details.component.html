@@ -2,7 +2,7 @@
     <div class="card-body">
         <h1 class=" card-title">{{ displayTicket.title}} </h1>
         <h6 class="card-subtitle mb-2 text-body-secondary">Ticket ID #{{displayTicket.id}}</h6>
-        <!--<p><img class="rounded-circle" [src]="getUser()" /> {{displayTicket.userOpened}}</p>-->
+        <p><img class="rounded-circle" [src]="getUser()" /> {{displayTicket.userOpened}}</p>
         <p class="card-text">{{displayTicket.body}} </p>
         @if(displayTicket.isOpen){
             <p>Status: Open</p>
@@ -22,15 +22,15 @@
         
         @if(!displayTicket.isOpen){
             <p>{{displayTicket.resolution}}</p>
-            <p>{{displayTicket.userClosed}}</p>
+            <p>{{getUserEmail(displayTicket.userClosed)}}</p>
         }
         
         
-        @if (isLoggedIn()) {
+        @if (isLoggedIn() && displayTicket.isOpen) {
         
             <app-resolution-form [formTicket]="displayTicket" (Submitted)="addResolution($event)"></app-resolution-form>
         }
-        @else {
+        @else if(!isLoggedIn()) {
             <h3>Sign in to add a resolution</h3>
         }
     </div>

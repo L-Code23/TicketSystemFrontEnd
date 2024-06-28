@@ -2,8 +2,8 @@ export interface TicketModel {
     id:         number;
     title:      string;
     body:       string;
-    userOpened: string;
-    userClosed: string;
+    userOpened: number;
+    userClosed: number;
     isOpen:     boolean;
     resolution: string;
 }

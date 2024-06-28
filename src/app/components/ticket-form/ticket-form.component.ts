@@ -22,7 +22,7 @@ export class TicketFormComponent {
 
  emitSubmitted(){
   this.formTicket.isOpen = true;
-  this.formTicket.userOpened = this.userService.user.email;
+  this.formTicket.userOpened = this.userService.currentUser.id;
   let newTicket:TicketModel = {...this.formTicket};
   this.Submitted.emit(newTicket);
   this.formTicket = {} as TicketModel;

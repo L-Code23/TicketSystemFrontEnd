@@ -17,7 +17,7 @@ constructor(private userService:UserService){}
 
 emitSubmitted(){
   this.formTicket.isOpen = false;
-  this.formTicket.userClosed = this.userService.user.email;
+  this.formTicket.userClosed = this.userService.currentUser.id;
   this.Submitted.emit(this.formTicket);
 }
 } 

@@ -51,15 +51,20 @@ ngOnInit(){
 
   addBookmark(){
       this.bookmark.ticketId = this.displayTicket.id;
-      this.bookmark.userBookmarked = this.userService.user.email
+      this.bookmark.userBookmarkedId = this.userService.currentUser.id;
+      console.log(this.bookmark);
       
     this.bookmarkService.addBookmark(this.bookmark).subscribe((response) => {
       console.log(response);
     })
   }
-  //getUser(): string{
+
+  getUserEmail(id: number): string | undefined{
+    return this.userService.users.find(u => u.id = id)?.email;
+  }
+  getUser(): string{
     
-   //return this.userService.user.;
-  //}
+   return this.userService.currentUser.photoUrl;
+  }
 }
 //https://lh3.googleusercontent.com/a/ACg8ocJ4wW3rSnU5IyT7M9JR4c57AxojV7fSS38j03Zf-RxI4X02dneTrg=s96-c

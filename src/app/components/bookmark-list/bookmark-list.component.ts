@@ -32,7 +32,7 @@ export class BookmarkListComponent {
   }
 
   getUser(){
-    return this.userService.user.email;
+    return this.userService.currentUser.id;
   }
 
   

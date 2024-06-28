@@ -3,6 +3,7 @@ import { TicketModel } from "./ticket-model";
 export interface Bookmark {
     id:             number;
     ticketId:       number;
-    userBookmarked: string;
+    userBookmarkedId: number;
+    userBookmarked: number; //had to add due to mismatch in naming with DTO
     ticket:         TicketModel;
 }
