@@ -1,9 +1,6 @@
+
 <div>
-  
-    <app-ticket-form (Submitted)="addTicket($event)"></app-ticket-form>
-</div>
-<div>
-    <table class="table table-secondary table-striped table-hover" >
+    <table class="col-12 table table-secondary table-striped table-hover rounded-3" >
         <thead>
             <tr>
                 <th scope="col">Title</th>
@@ -31,4 +28,8 @@
        
     </table>
    
+</div>
+<div>
+  
+    <app-ticket-form (Submitted)="addTicket($event)"></app-ticket-form>
 </div>

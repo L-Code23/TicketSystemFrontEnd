@@ -1,9 +1,9 @@
-<div class="card">
+<div class="card mb-3">
     <div class="card-body">
         <h1 class=" card-title">{{ displayTicket.title}} </h1>
         <h6 class="card-subtitle mb-2 text-body-secondary">Ticket ID #{{displayTicket.id}}</h6>
-        <p><img class="rounded-circle" [src]="getUser()" /> {{displayTicket.userOpened}}</p>
-        <p class="card-text">{{displayTicket.body}} </p>
+            <p><img class="rounded-circle me-2" [src]="getUser(displayTicket.userOpened)" /> {{getUserEmail(displayTicket.userOpened)}}</p>
+            <p class="card-text">{{displayTicket.body}} </p>
         @if(displayTicket.isOpen){
             <p>Status: Open</p>
         }
@@ -12,30 +12,59 @@
         }
        
         <!--add if statement to display check mark or something-->
-        @if(isLoggedIn()){
-        
-            <button (click)="addBookmark()">Add Bookmark</button>
-        }
-        @else {
-            <p>Sign in to add a bookmark</p>
-        }
-        
+       
         @if(!displayTicket.isOpen){
-            <p>{{displayTicket.resolution}}</p>
-            <p>{{getUserEmail(displayTicket.userClosed)}}</p>
+            <div class="border border-black rounded-3 p-2 mb-3">   
+                <p><img class="rounded-circle me-2" [src]="getUser(displayTicket.userClosed)" />{{getUserEmail(displayTicket.userClosed)}}</p>
+                <p class="ms-5">{{displayTicket.resolution}}</p>
+            </div>
+        }
+        @if(isLoggedIn()){
+
+            @if(display)
+            {
+                <button class="btn btn-primary mb-3" (click)="addBookmark()"><i class="bi bi-bookmark"></i></button>
+            } 
+            @else if(!display)
+            {
+                <button class="btn btn-primary mb-3" (click)="addBookmark()"><i class="bi bi-bookmark-fill"></i></button>
+            }
         }
         
         
         @if (isLoggedIn() && displayTicket.isOpen) {
-        
             <app-resolution-form [formTicket]="displayTicket" (Submitted)="addResolution($event)"></app-resolution-form>
+           
         }
         @else if(!isLoggedIn()) {
-            <h3>Sign in to add a resolution</h3>
+            <h3>Sign in to add a resolution, comment, or bookmark</h3>
         }
     </div>
     
 </div>
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">Comments</h3>
+        @if (isLoggedIn()) {
+            <div class="mb-3">
+                <label class="form-label" for="comment">Add a comment</label>
+                <textarea class="form-control mb-3" type="text" id="comment" [(ngModel)]="formComment.body" row="3"></textarea>
+        
+                <button class="btn btn-primary" (click)="addComment()">Add comment</button>
+            </div>
+        }
+        @for (c of AllComment; track c.id) {
+            @if(c.ticketId == displayTicket.id){
+                <div class="border border-black rounded-3 p-2 mb-3">
+                    <p><img class="rounded-circle me-2"  [src]="getUser(c.userId)" />{{getUserEmail(c.userId)}}</p>
+                    <p class="ms-5">{{c.body}}</p>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+ 
 
 
 

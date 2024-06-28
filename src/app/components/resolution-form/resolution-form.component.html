@@ -1,6 +1,8 @@
-<div>
-    <label for="resolution">Add a resolution</label>
-    <input type="text" id="text" [(ngModel)]="formTicket.resolution" />
+<div class="mb-3">
+    <label class="form-label" for="resolution">Add a resolution</label>
+    <textarea class="form-control" type="text" id="text" [(ngModel)]="formTicket.resolution" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" (click)="emitSubmitted()">Mark As Closed</button>
+    </div>
 
-    <button (click)="emitSubmitted()">Submit</button>
-</div>

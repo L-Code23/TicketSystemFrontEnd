@@ -1,17 +1,24 @@
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Ticket Number</th>
-        <th></th>
-    </tr>
-    @for (b of AllBookmarks; track b.id) {
-        <tr>
-            @if(b.userBookmarked == getUser()) {
-                <td>{{b.ticket.title}}</td>
-                <td>{{b.ticketId}}</td>
-                <td><button  [routerLink]="['/details/', b.ticketId]">See Details</button></td>
-                <td><button class="btn btn-primary see-detail-btn" (click)="deleteBookmark(b.id)">Delete</button></td>
+<div>
+    <table class="col-12 table table-secondary table-striped table-hover rounded-3">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Ticket Number</th>
+                <th scope="col"></th>
+                <th scope="col"></th>           
+            </tr>
+        </thead>
+        <tbody>
+            @for (b of AllBookmarks; track b.id) {
+                <tr>
+                    @if(b.userBookmarked == getUser()) {
+                        <td scope="row">{{b.ticket.title}}</td>
+                        <td>{{b.ticketId}}</td>
+                        <td><button class="btn btn-primary see-detail-btn" [routerLink]="['/details/', b.ticketId]">See Details</button></td>
+                        <td><button class="btn btn-primary see-detail-btn" (click)="deleteBookmark(b.id)">Delete</button></td>
+                    }
+                </tr>
             }
-        </tr>
-    }
-</table>
+        </tbody>
+    </table>
+</div>

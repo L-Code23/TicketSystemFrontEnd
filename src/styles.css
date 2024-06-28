@@ -19,3 +19,12 @@ html, body{
 .see-detail-btn{
 border-radius: 30px;
 }
+
+.table {
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .card{
+    background-color: #e1e2e4;
+   
+  }

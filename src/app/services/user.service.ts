@@ -16,7 +16,9 @@ export class UserService {
   url: string = "https://localhost:7204/";
 
   constructor(private socialAuthServiceConfig: SocialAuthService, private http:HttpClient) { }
- 
+  getAll(): Observable<UserModel[]>{
+    return this.http.get<UserModel[]>(`${this.url}api/User`);
+  }
   Login() {
     //authState is a custom observable that will run again any time changes are noticed.
     this.socialAuthServiceConfig.authState.subscribe((userResponse: SocialUser) => {
@@ -33,9 +35,7 @@ export class UserService {
     this.socialAuthServiceConfig.signOut();
   }
 
-  getAll(): Observable<UserModel[]>{
-    return this.http.get<UserModel[]>(`${this.url}api/User`);
-  }
+  
 
   addUser(user: UserModel): Observable<UserModel>{
     return this.http.post<UserModel>(`${this.url}api/User`, user);

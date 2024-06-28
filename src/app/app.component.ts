@@ -19,13 +19,12 @@ export class AppComponent {
   constructor(private userService:UserService) { }
 
   ngOnInit(){
+
+    this.userService.getAll().subscribe((response) => {
+      this.userService.users = response;
+    });
     this.userService.Login();
   }
-  // ngOnChanges(changes: SimpleChanges){
-  //   if(this.userService.loggedIn){
-  //     this.addUser(this.userService.user);
-  //   }
-  // }
   IsLoggedIn():boolean{
     return this.userService.loggedIn;
   }

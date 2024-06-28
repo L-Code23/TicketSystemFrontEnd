@@ -1,10 +1,27 @@
 @if(!isLoggedIn()){
-    <h2>Sign in to add a ticket</h2>
+    <div> <!--text center will center a div-->
+        <h2 class="text-center">Sign in to add a ticket</h2> 
+    </div>
 }
 @else{
-    <label for="Title">Title</label>
-    <input type="text" id="Title" [(ngModel)]="formTicket.title"/>
-    <label for="Body">Body</label>
-    <input type="text" id="Title" [(ngModel)]="formTicket.body" />
-    <button (click)="emitSubmitted()">Add</button>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col-12 card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h3>Add a new ticket</h3>
+                </div>
+                <div>
+                    <label class="form-label" for="Title">Title</label>
+                    <input class="form-control" type="text" id="Title" [(ngModel)]="formTicket.title"/>
+                </div>
+                <div>
+                    <label class="form-label" for="Body">Body</label>
+                    <textarea class="form-control mb-3" type="text" id="Title" [(ngModel)]="formTicket.body" row="3"></textarea>
+                </div>
+                <div>
+                    <button class="btn btn-primary" (click)="emitSubmitted()">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
 }
