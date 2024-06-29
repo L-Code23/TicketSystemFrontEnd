@@ -15,7 +15,7 @@
                         <td scope="row">{{b.ticket.title}}</td>
                         <td>{{b.ticketId}}</td>
                         <td><button class="btn btn-primary see-detail-btn" [routerLink]="['/details/', b.ticketId]">See Details</button></td>
-                        <td><button class="btn btn-primary see-detail-btn" (click)="deleteBookmark(b.id)">Delete</button></td>
+                        <td><button class="btn btn-primary see-detail-btn" (click)="deleteBookmark(b.id)"><i class="bi bi-trash3"></i></button></td>
                     }
                 </tr>
             }
