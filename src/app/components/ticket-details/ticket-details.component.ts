@@ -28,11 +28,13 @@ export class TicketDetailsComponent {
   formComment:CommentModel = {} as CommentModel;
   display: boolean = false;
   id:number = 0;
+  bookmarkId:number = 0;
 
 ngOnInit(){
   this.getID();
   this.callAPI();
   this.getComment();
+
 }
 
   getID(): void{
@@ -54,11 +56,7 @@ ngOnInit(){
       this.AllComment = response;
     })
   }
-  isBookmarked(){
-    this.bookmarkService.getBookmarked(this.userService.currentUser.id, this.displayTicket.id).subscribe((response: boolean) => {
-      this.display = response;
-    })
-  }
+
 
   addComment(){
     this.formComment.userId = this.userService.currentUser.id;
@@ -86,8 +84,31 @@ ngOnInit(){
       
     this.bookmarkService.addBookmark(this.bookmark).subscribe((response) => {
       console.log(response);
-      this.display = !this.display;
+      //this.display = !this.display;
     })
+  }
+  deleteBookmark(id: number){
+    this.bookmarkService.deleteBookmark(id).subscribe((response) => {
+      console.log(response);
+    })
+  }
+  isBookmarked(){
+    this.bookmarkService.getBookmarked(this.userService.currentUser.id, this.displayTicket.id).subscribe((response: boolean) => {
+      this.display = response;
+
+    })
+  }
+  toggle(){
+    if(this.display){
+      this.bookmarkService.getById(this.userService.currentUser.id, this.displayTicket.id).subscribe((response: number) => {
+        this.bookmarkId = response;
+        this.deleteBookmark(this.bookmarkId);
+      });
+      this.display = !this.display;
+    } else if(!this.display){
+      this.addBookmark();
+      this.display = !this.display;
+    }
   }
   
 

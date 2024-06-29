@@ -14,8 +14,8 @@ export class BookmarkService {
   getAll():Observable<Bookmark[]>{
     return this.http.get<Bookmark[]>(`${this.url}api/Bookmark`);
   }
-  getById():Observable<Bookmark>{
-    return this.http.get<Bookmark>(`${this.url}api/Bookmark`);
+  getById(userId:number, ticketId:number):Observable<number>{
+    return this.http.get<number>(`${this.url}api/Bookmark/getById?userId=${userId}&ticketId=${ticketId}`);
   }
   getBookmarked(userId:number, ticketId:number):Observable<boolean>{
     return this.http.get<boolean>(`${this.url}api/Bookmark/bookmarked?userId=${userId}&ticketId=${ticketId}`);

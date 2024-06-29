@@ -23,11 +23,12 @@
 
             @if(display)
             {
-                <button class="btn btn-primary mb-3" (click)="addBookmark()"><i class="bi bi-bookmark"></i></button>
+                <button class="btn btn-primary mb-3" (click)="toggle()"><i class="bi bi-bookmark-fill"></i></button>
             } 
             @else if(!display)
             {
-                <button class="btn btn-primary mb-3" (click)="addBookmark()"><i class="bi bi-bookmark-fill"></i></button>
+                <button class="btn btn-primary mb-3" (click)="toggle()"><i class="bi bi-bookmark"></i></button>
+                
             }
         }
         
