@@ -23,11 +23,11 @@
 
             @if(display)
             {
-                <button class="btn btn-primary mb-3" (click)="toggle()"><i class="bi bi-bookmark-fill"></i></button>
+                <button class="btn btn-primary see-detail-btn mb-3" (click)="toggle()"><i class="bi bi-bookmark-fill"></i></button>
             } 
             @else if(!display)
             {
-                <button class="btn btn-primary mb-3" (click)="toggle()"><i class="bi bi-bookmark"></i></button>
+                <button class="btn btn-primary see-detail-btn mb-3" (click)="toggle()"><i class="bi bi-bookmark"></i></button>
                 
             }
         }
@@ -51,7 +51,7 @@
                 <label class="form-label" for="comment">Add a comment</label>
                 <textarea class="form-control mb-3" type="text" id="comment" [(ngModel)]="formComment.body" row="3"></textarea>
         
-                <button class="btn btn-primary" (click)="addComment()">Add comment</button>
+                <button class="btn btn-primary see-detail-btn" (click)="addComment()">Add comment</button>
             </div>
         }
         @for (c of AllComment; track c.id) {
