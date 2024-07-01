@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class BookmarkService {
 
   constructor(private http:HttpClient) { }
-  url: string = "https://localhost:7204/";
+  url: string = "https://localhost:7204/"; //all had the same url
 
   getAll():Observable<Bookmark[]>{
     return this.http.get<Bookmark[]>(`${this.url}api/Bookmark`);
